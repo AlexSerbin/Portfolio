@@ -19,7 +19,7 @@ public class CheckHTMLTagsTest {
         url="https://mvnrepository.com/";
         WebDriver.get(url);
     }
-    //
+    //Проверить, что на странице присутствует 1 JS файл.
     @Test
     public void testMethodScriptNumber(){
 
@@ -27,12 +27,14 @@ public class CheckHTMLTagsTest {
         assertEquals(1, sizeOfScriptTags);
         System.out.println(sizeOfScriptTags);
     }
+    //Проверить, что нет JS на странице, вставленного напрямую без файла.
     @Test
     public void testMethodScriptWithoutSrc(){
         int sizeOfAllScripts= WebDriver.findElements(By.xpath("//script")).size();
         int sizeOfScriptTagsWithSrc = WebDriver.findElements(By.xpath("//script[@src]")).size();
         assertEquals(sizeOfScriptTagsWithSrc, sizeOfAllScripts);
     }
+    //Проверить, что на странице присутствует 1 CSS файл.
     @Test
     public void testMethodCssNumber() {
 
@@ -40,6 +42,7 @@ public class CheckHTMLTagsTest {
         assertEquals(1, sizeOfCssTags);
         System.out.println(sizeOfCssTags);
     }
+    //Проверить, что на странице нет напрямую вставленного стиля.
     @Test
     public void testMethodStyleNumber() {
 
@@ -47,6 +50,7 @@ public class CheckHTMLTagsTest {
         assertEquals(0, sizeOfStyleTags);
         System.out.println(sizeOfStyleTags);
     }
+    //Проверить, что на странице не более 1 тэга H1.
     @Test
     public void testMethodH1Number() {
 
@@ -54,6 +58,7 @@ public class CheckHTMLTagsTest {
         assertEquals(1, sizeOfH1Tags);
         System.out.println(sizeOfH1Tags);
     }
+    //Проверить, что все id тэгов уникальны.
     @Test
     public void testMethodID() {
 
